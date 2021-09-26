@@ -35,3 +35,102 @@ override fun onCreate(savedInstanceState: Bundle?) {
          - Kembali ke tampilan awal **Pengaturan** lalu masuk ke **Setelan tambahan > Opsi pengembang**
          - Scroll kebawah dan aktifkan **Debugging USB**<br/>
 13. Setelah konfigurasi di langkah sebelumnya selesai, maka kita bisa melakukan debugging pada aplikasi kita menggunakan media emulator atau mobile device.
+<br/><br/>
+## LATIHAN
+
+1. Ganti tulisan _"Hello wold"_ dengan tulisan _"Selamat datang di STMIK AKAKOM"_.<br/>
+   - Buka file ```activity_main.xml```
+   - Pada element ___TextView___, ganti nilai atribut dari ___android:text___ menjadi _"Selamat datang di STMIK AKAKOM"_.<br/>
+```xml
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat datang di STMIK AKAKOM"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+```
+2. Jalankan, maka teks yang berada di tengah akan berubah
+3. Tambahkan tulisan lain dengan isi file ```activity_main.xml``` seperti berikut<br/>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/helloworld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat datang di STMIK AKAKOM"
+        app:layout_constraintBottom_toTopOf="@id/creator"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_creator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Created by "
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/creator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/creator"/>
+
+    <TextView
+        android:id="@+id/creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="MARIO"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+4. Jalankan, maka hasilnya akan seperti berikut<br/>
+<img src="images/Screenshot_2021-09-26-19-26-17-950_akakom.mario_195410194.kotlin.helloworldkotlin.jpg" width="300" alt="Tampilan project baru"/><br/><br/>
+
+## TUGAS
+
+1. Membuat aplikasi android dengan perangkat komputer dirumah dan jalankan di perangkat mobile. :heavy_check_mark:<br/>
+> Sudah termasuk saat sedang praktik
+2. Jelaskan tentang isi file ```activity_main.xml```<br/>
+> File ini berisi tentang layout atau tampilan untuk diguanakan di aplikasi. Pada kasus ini file tersebut digunakan sebagai tampilan sebuah activity yaitu MainActivity.
+> Untuk isi dari file _activity_main.xml_, memuat semua data tentang layout yang akan ditampilkan. Dengan _root element_ ___androidx.constraintlayout.widget.ConstraintLayout___ dan memiliki 3 _child element_ ___TextView___. Ketiga elemen ___TextView___ berisi data tentang teks yang akan ditampilkan, dan setiap elemen bisa diubah style-nya sesuai kebutuhan.<br/>
+```xml
+<TextView
+    android:id="@+id/label_creator"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Created by "
+    android:textAlignment="center"
+    android:textColor="@android:color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="@id/creator"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/creator"/>
+
+<TextView
+    android:id="@+id/creator"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:text="MARIO"
+    android:textStyle="bold"
+    android:textSize="26sp"
+    android:textColor="@android:color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+```
+> Kedua elemen tersebut akan berada dibagian bawah layar (bukan dibawah layar), dengan _label_creator_ berada di kiri dan _creator_ di kanan. Dan setiap elemen memiliki style yang berbeda beda seperti ukuran yang berbeda, warna, alignment, textStyle, dal lain-lain.
